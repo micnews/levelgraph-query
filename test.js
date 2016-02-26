@@ -18,7 +18,6 @@ test('basic query', t => {
     object: 'bar'
   }];
 
-  t.is(actual.length, 1);
   t.same(actual, expected);
 });
 
@@ -42,7 +41,6 @@ test('left arrow', t => {
     object: 'foo'
   }];
 
-  t.is(actual.length, 1);
   t.same(actual, expected);
 });
 
@@ -58,6 +56,20 @@ test('double arrows', t => {
     object: 'foo'
   }];
 
-  t.is(actual.length, 2);
+  t.same(actual, expected);
+});
+
+test('multiple', t => {
+  const actual = query('foo-[connection1]->bar<-[connection2]-boop');
+  const expected = [{
+    predicate: 'foo',
+    subject: 'connection1',
+    object: 'bar'
+  }, {
+    predicate: 'boop',
+    subject: 'connection2',
+    object: 'bar'
+  }];
+
   t.same(actual, expected);
 });
