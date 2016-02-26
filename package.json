@@ -1,0 +1,30 @@
+{
+  "name": "levelgraph-query",
+  "version": "0.0.0",
+  "description": "Simple query language for levelgraph",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "ava && semistandard | snazzy",
+    "prepublish": "mkdir -p dist && babel lib --out-dir dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kesla/levelgraph-query.git"
+  },
+  "author": "David Björklund <david.bjorklund@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kesla/levelgraph-query/issues"
+  },
+  "homepage": "https://github.com/kesla/levelgraph-query#readme",
+  "devDependencies": {
+    "ava": "^0.12.0",
+    "babel-cli": "^6.5.1",
+    "babel-core": "^6.5.2",
+    "babel-preset-es2015": "^6.5.0",
+    "levelgraph": "^1.1.1",
+    "semistandard": "^7.0.5",
+    "snazzy": "^3.0.0"
+  },
+  "dependencies": {}
+}
