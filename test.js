@@ -11,7 +11,7 @@ test('input must be String', t => {
 });
 
 test('basic query', t => {
-  const actual = query('foo -[connection]-> bar');
+  const actual = query('foo-[connection]->bar');
   const expected = [{
     predicate: 'foo',
     subject: 'connection',
@@ -23,7 +23,7 @@ test('basic query', t => {
 });
 
 test('variables', t => {
-  const actual = query(':foo -[connection]-> :bar');
+  const actual = query(':foo-[connection]->:bar');
   const expectedPredicateName = 'foo';
   const expectedSubject = 'connection';
   const expectedObjectName = 'bar';
