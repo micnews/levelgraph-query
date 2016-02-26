@@ -20,3 +20,14 @@ test('basic query', t => {
 
   t.same(actual, expected);
 });
+
+test('variables', t => {
+  const [actual] = query([':foo -[connection]-> :bar']);
+  const expectedPredicateName = 'foo';
+  const expectedSubject = 'connection';
+  const expectedObjectName = 'bar';
+
+  t.is(actual.predicate.name, expectedPredicateName);
+  t.is(actual.subject, expectedSubject);
+  t.is(actual.object.name, expectedObjectName);
+});
