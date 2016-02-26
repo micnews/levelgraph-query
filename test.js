@@ -6,28 +6,30 @@ import setupQuery from './lib';
 const db = levelgraph({});
 const query = setupQuery(db);
 
-test('input must be array', t => {
-  t.throws(() => query('this is not an array'));
+test('input must be String', t => {
+  t.throws(() => query(['this is an array']));
 });
 
 test('basic query', t => {
-  const actual = query(['foo -[connection]-> bar']);
+  const actual = query('foo -[connection]-> bar');
   const expected = [{
     predicate: 'foo',
     subject: 'connection',
     object: 'bar'
   }];
 
+  t.is(actual.length, 1);
   t.same(actual, expected);
 });
 
 test('variables', t => {
-  const [actual] = query([':foo -[connection]-> :bar']);
+  const actual = query(':foo -[connection]-> :bar');
   const expectedPredicateName = 'foo';
   const expectedSubject = 'connection';
   const expectedObjectName = 'bar';
 
-  t.is(actual.predicate.name, expectedPredicateName);
-  t.is(actual.subject, expectedSubject);
-  t.is(actual.object.name, expectedObjectName);
+  t.is(actual.length, 1);
+  t.is(actual[0].predicate && actual[0].predicate.name, expectedPredicateName);
+  t.is(actual[0].subject, expectedSubject);
+  t.is(actual[0].object && actual[0].object.name, expectedObjectName);
 });
