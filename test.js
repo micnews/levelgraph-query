@@ -33,3 +33,31 @@ test('variables', t => {
   t.is(actual[0].subject, expectedSubject);
   t.is(actual[0].object && actual[0].object.name, expectedObjectName);
 });
+
+test('left arrow', t => {
+  const actual = query('foo<-[connection]-bar');
+  const expected = [{
+    predicate: 'bar',
+    subject: 'connection',
+    object: 'foo'
+  }];
+
+  t.is(actual.length, 1);
+  t.same(actual, expected);
+});
+
+test('double arrows', t => {
+  const actual = query('foo<-[connection]->bar');
+  const expected = [{
+    predicate: 'foo',
+    subject: 'connection',
+    object: 'bar'
+  }, {
+    predicate: 'bar',
+    subject: 'connection',
+    object: 'foo'
+  }];
+
+  t.is(actual.length, 2);
+  t.same(actual, expected);
+});
