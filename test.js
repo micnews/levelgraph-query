@@ -13,8 +13,8 @@ test('input must be String', t => {
 test('basic query', t => {
   const actual = query('foo-[connection]->bar');
   const expected = [{
-    predicate: 'foo',
-    subject: 'connection',
+    subject: 'foo',
+    predicate: 'connection',
     object: 'bar'
   }];
 
@@ -23,21 +23,21 @@ test('basic query', t => {
 
 test('variables', t => {
   const actual = query(':foo-[connection]->:bar');
-  const expectedPredicateName = 'foo';
-  const expectedSubject = 'connection';
+  const expectedSubjectName = 'foo';
+  const expectedPredicate = 'connection';
   const expectedObjectName = 'bar';
 
   t.is(actual.length, 1);
-  t.is(actual[0].predicate && actual[0].predicate.name, expectedPredicateName);
-  t.is(actual[0].subject, expectedSubject);
+  t.is(actual[0].subject && actual[0].subject.name, expectedSubjectName);
+  t.is(actual[0].predicate, expectedPredicate);
   t.is(actual[0].object && actual[0].object.name, expectedObjectName);
 });
 
 test('left arrow', t => {
   const actual = query('foo<-[connection]-bar');
   const expected = [{
-    predicate: 'bar',
-    subject: 'connection',
+    subject: 'bar',
+    predicate: 'connection',
     object: 'foo'
   }];
 
@@ -47,12 +47,12 @@ test('left arrow', t => {
 test('double arrows', t => {
   const actual = query('foo<-[connection]->bar');
   const expected = [{
-    predicate: 'foo',
-    subject: 'connection',
+    subject: 'foo',
+    predicate: 'connection',
     object: 'bar'
   }, {
-    predicate: 'bar',
-    subject: 'connection',
+    subject: 'bar',
+    predicate: 'connection',
     object: 'foo'
   }];
 
@@ -62,12 +62,12 @@ test('double arrows', t => {
 test('multiple', t => {
   const actual = query('foo-[connection1]->bar<-[connection2]-boop');
   const expected = [{
-    predicate: 'foo',
-    subject: 'connection1',
+    subject: 'foo',
+    predicate: 'connection1',
     object: 'bar'
   }, {
-    predicate: 'boop',
-    subject: 'connection2',
+    subject: 'boop',
+    predicate: 'connection2',
     object: 'bar'
   }];
 

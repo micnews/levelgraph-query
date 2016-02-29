@@ -24,7 +24,7 @@ const query = createQuery(query);
 // so the query below is translated to
 // [{ subject: db.v('subject'), predicate: 'predicate', object: object }]
 // so query(...) can be used in db.searchStream and/or db.search
-db.searchStream(query(':subject -[predicate]-> object'));
+db.searchStream(query(':subject-[predicate]->object'));
 
 ```
 
