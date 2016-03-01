@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kesla/levelgraph-query.git"
+    "url": "git+https://github.com/micnews/levelgraph-query.git"
   },
   "author": "David Björklund <david.bjorklund@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kesla/levelgraph-query/issues"
+    "url": "https://github.com/micnews/levelgraph-query/issues"
   },
-  "homepage": "https://github.com/kesla/levelgraph-query#readme",
+  "homepage": "https://github.com/micnews/levelgraph-query#readme",
   "devDependencies": {
     "ava": "^0.12.0",
     "babel-cli": "^6.5.1",

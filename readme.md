@@ -1,4 +1,4 @@
-# levelgraph-query [![Build Status](https://travis-ci.org/kesla/levelgraph-query.png?branch=master)](https://travis-ci.org/kesla/levelgraph-query)
+# levelgraph-query [![Build Status](https://travis-ci.org/micnews/levelgraph-query.png?branch=master)](https://travis-ci.org/micnews/levelgraph-query)
 
 Simple query language for levelgraph
 
