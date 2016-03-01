@@ -3,7 +3,7 @@ import levelgraph from 'levelgraph';
 import level from 'level';
 
 const db = levelgraph(level('yourdb'));
-const query = createQuery(query);
+const query = createQuery(db);
 
 // :subject -> db.v('subject')
 // so the query below is translated to
